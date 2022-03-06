@@ -1,0 +1,6 @@
+name: AutoTNT
+version: 0.1
+main: org.apache.maven.plugins.AutoTNT
+load: STARTUP
+api-version: 1.18
+authors: [ kili ]

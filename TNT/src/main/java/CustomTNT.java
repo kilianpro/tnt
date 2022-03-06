@@ -15,6 +15,7 @@ public class CustomTNT {
     public static ItemStack tnt;
     public static ItemStack dia;
     public static ItemStack drink;
+	private static ItemStack trank;
 
 
     public static void init() {
@@ -22,8 +23,35 @@ public class CustomTNT {
         createBomb();
         createDia();
         createDrink();
+        createSueßerTrank();
     }
 
+    
+    
+    private static void createSueßerTrank() {
+        ItemStack item = new ItemStack(Material.POTION, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("§c§lltrank");
+
+        List<String> lore = new ArrayList<>();
+        lore.add("§7Opis AutoTNTDrinkibinki!");
+
+        meta.setLore(lore);
+        item.setItemMeta(meta);
+        trank = item;
+
+        ShapedRecipe drank = new ShapedRecipe(NamespacedKey.minecraft("IsabellasZauberTrankLecka_special"), trank);
+        drank.shape("121", "343", "565");
+        
+        drank.setIngredient('1', Material.MELON_SLICE);
+        drank.setIngredient('2', Material.SUGAR);
+        drank.setIngredient('3', Material.SWEET_BERRIES);
+        drank.setIngredient('4', Material.GLASS_BOTTLE);
+        drank.setIngredient('5', Material.CAKE);
+        drank.setIngredient('6', Material.ENCHANTED_GOLDEN_APPLE);
+        Bukkit.getServer().addRecipe(drank);
+    }
+    
     private static void createDia() {
         ItemStack item = new ItemStack(Material.DIAMOND, 1);
         ItemMeta meta = item.getItemMeta();
